@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createService } from "../api/services";
 
 function AddService() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -10,6 +13,8 @@ function AddService() {
     status: "Active",
     turnaroundTime: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
     setFormData({
@@ -21,103 +26,95 @@ function AddService() {
   function handleSubmit(e) {
     e.preventDefault();
 
+    setLoading(true);
+
     const newService = {
       ...formData,
       price: Number(formData.price),
     };
 
-    createService(newService).then(() => {
-      alert("Service added!");
+    createService(newService)
+      .then(() => {
+        alert("Service added successfully!");
 
-      setFormData({
-        name: "",
-        description: "",
-        category: "",
-        price: "",
-        status: "Active",
-        turnaroundTime: "",
+        setFormData({
+          name: "",
+          description: "",
+          category: "",
+          price: "",
+          status: "Active",
+          turnaroundTime: "",
+        });
+
+        navigate("/services");
+      })
+      .catch((err) => {
+        console.error("Error adding service:", err);
+        alert("Failed to add service");
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    });
   }
 
   return (
     <div className="page">
-
       <div className="section">
         <h1>Add New Service</h1>
 
-        <form onSubmit={handleSubmit}>
+        {/* GRID FORM APPLIED HERE */}
+        <form onSubmit={handleSubmit} className="form-grid">
 
-          {/* NAME */}
-          <div style={{ marginBottom: "12px" }}>
-            <input
-              name="name"
-              placeholder="Service name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </div>
+          <input
+            name="name"
+            placeholder="Service name"
+            value={formData.name}
+            onChange={handleChange}
+          />
 
-          {/* DESCRIPTION */}
-          <div style={{ marginBottom: "12px" }}>
-            <input
-              name="description"
-              placeholder="Description"
-              value={formData.description}
-              onChange={handleChange}
-            />
-          </div>
+          <input
+            name="description"
+            placeholder="Description"
+            value={formData.description}
+            onChange={handleChange}
+          />
 
-          {/* CATEGORY */}
-          <div style={{ marginBottom: "12px" }}>
-            <input
-              name="category"
-              placeholder="Category (e.g. KYC, AML)"
-              value={formData.category}
-              onChange={handleChange}
-            />
-          </div>
+          <input
+            name="category"
+            placeholder="Category (e.g. KYC, AML)"
+            value={formData.category}
+            onChange={handleChange}
+          />
 
-          {/* PRICE */}
-          <div style={{ marginBottom: "12px" }}>
-            <input
-              name="price"
-              placeholder="Price"
-              value={formData.price}
-              onChange={handleChange}
-            />
-          </div>
+          <input
+            name="price"
+            placeholder="Price"
+            value={formData.price}
+            onChange={handleChange}
+          />
 
-          {/* TURNAROUND TIME */}
-          <div style={{ marginBottom: "12px" }}>
-            <input
-              name="turnaroundTime"
-              placeholder="Turnaround Time (e.g. 5 min)"
-              value={formData.turnaroundTime}
-              onChange={handleChange}
-            />
-          </div>
+          <input
+            name="turnaroundTime"
+            placeholder="Turnaround Time (e.g. 5 min)"
+            value={formData.turnaroundTime}
+            onChange={handleChange}
+          />
 
-          {/* STATUS */}
-          <div style={{ marginBottom: "18px" }}>
-            <select
-              name="status"
-              value={formData.status}
-              onChange={handleChange}
-            >
-              <option value="Active">Active</option>
-              <option value="Pending">Pending</option>
-            </select>
-          </div>
+          <select
+            name="status"
+            value={formData.status}
+            onChange={handleChange}
+          >
+            <option value="Active">Active</option>
+            <option value="Pending">Pending</option>
+          </select>
 
-          {/* SUBMIT BUTTON */}
-          <button type="submit" style={{ marginTop: "10px" }}>
-            Add Service
+          <button type="submit" disabled={loading}>
+            {loading ? "Adding..." : "Add Service"}
           </button>
 
         </form>
       </div>
-
     </div>
   );
 }

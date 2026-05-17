@@ -14,7 +14,7 @@
       "name": "Identity Verification",
       "description": "Verify government-issued IDs such as passports and national IDs.",
       "category": "KYC",
-      "price": 30,
+      "price": 76,
       "status": "Active",
       "turnaroundTime": "2 Minutes"
     },
@@ -35,6 +35,24 @@
       "price": 80,
       "status": "Active",
       "turnaroundTime": "24 Hours"
+    },
+    {
+      "name": "",
+      "description": "",
+      "category": "",
+      "price": 0,
+      "status": "Active",
+      "turnaroundTime": "",
+      "id": 5
+    },
+    {
+      "name": "",
+      "description": "",
+      "category": "",
+      "price": 0,
+      "status": "Active",
+      "turnaroundTime": "",
+      "id": 6
     }
   ]
 }
