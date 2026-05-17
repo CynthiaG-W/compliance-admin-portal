@@ -20,6 +20,9 @@ function Services() {
         <p>
           Manage AML checks, KYB verification,
           identity checks and risk screening services.
+          <p style={{ color: "#2563eb", fontWeight: "bold" }}>
+  Feature branch: Services API integration active
+</p>
         </p>
       </div>
 
