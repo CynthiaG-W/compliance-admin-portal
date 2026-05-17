@@ -1,0 +1,40 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "AML Screening",
+      "description": "Screen customers against global sanctions and watchlists.",
+      "category": "Compliance",
+      "price": 45,
+      "status": "Active",
+      "turnaroundTime": "5 Minutes"
+    },
+    {
+      "id": 2,
+      "name": "Identity Verification",
+      "description": "Verify government-issued IDs such as passports and national IDs.",
+      "category": "KYC",
+      "price": 30,
+      "status": "Active",
+      "turnaroundTime": "2 Minutes"
+    },
+    {
+      "id": 3,
+      "name": "KYB Verification",
+      "description": "Validate business registration and ownership details.",
+      "category": "Business Compliance",
+      "price": 60,
+      "status": "Pending",
+      "turnaroundTime": "15 Minutes"
+    },
+    {
+      "id": 4,
+      "name": "Criminal Background Check",
+      "description": "Check criminal records and legal history for risk assessment.",
+      "category": "Background Screening",
+      "price": 80,
+      "status": "Active",
+      "turnaroundTime": "24 Hours"
+    }
+  ]
+}
