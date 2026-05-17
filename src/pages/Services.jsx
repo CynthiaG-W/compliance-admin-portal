@@ -4,12 +4,12 @@ import useFetchServices from "../hooks/useFetchServices";
 
 function Services() {
   const { data: services, loading } =
-    useFetchServices("http://localhost:3001/services");
+    useFetchServices("https://compliance-api-3ssu.onrender.com/services");
 
   const [searchTerm, setSearchTerm] = useState("");
 
   if (loading) {
-    return <h2>Loading services...</h2>;
+    return <h2>Loading services...⏳</h2>;
   }
 
   return (
@@ -23,7 +23,6 @@ function Services() {
         </p>
 
         <p style={{ color: "#2563eb", fontWeight: "bold" }}>
-          Feature branch: Services API integration active ✔
         </p>
       </div>
 

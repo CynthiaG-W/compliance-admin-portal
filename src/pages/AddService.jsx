@@ -62,7 +62,7 @@ function AddService() {
       <div className="section">
         <h1>Add New Service</h1>
 
-        {/* GRID FORM APPLIED HERE */}
+        {/* Grid form */}
         <form onSubmit={handleSubmit} className="form-grid">
 
           <input

@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001/services";
+const BASE_URL = "https://compliance-api-3ssu.onrender.com/services";
 
 // READ (GET)
 export const getServices = async () => {
