@@ -17,16 +17,17 @@ function Services() {
 
       <div className="section">
         <h1>Compliance Services</h1>
+
         <p>
-          Manage AML checks, KYB verification,
-          identity checks and risk screening services.
-          <p style={{ color: "#2563eb", fontWeight: "bold" }}>
-  Feature branch: Services API integration active
-</p>
+          Manage AML checks, KYB verification, identity checks and risk screening services.
+        </p>
+
+        <p style={{ color: "#2563eb", fontWeight: "bold" }}>
+          Feature branch: Services API integration active ✔
         </p>
       </div>
 
-      {/* Search bar */}
+      {/* search bar */}
       <div style={{ marginBottom: "15px" }}>
         <input
           type="text"
@@ -42,7 +43,7 @@ function Services() {
         />
       </div>
 
-      {/* Services Grid */}
+      {/* services grid */}
       <div className="grid">
         {services
           .filter((service) =>
